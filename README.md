@@ -1,3 +1,4 @@
 # niceos
-fuk niceos\n
+fuk niceos
+-----------
 (c) NiceOS team
