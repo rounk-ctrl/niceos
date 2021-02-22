@@ -34,3 +34,6 @@ debug: os-image.bin kernel.elf
 clean:
 	rm -rf *.bin *.dis *.o os-image.bin *.elf
 	rm -rf kernel/*.o boot/*.bin drivers/*.o boot/*.o cpu/*.o libc/*.o
+image:
+	dd if=/dev/zero of=disk.img bs=1024 count=1440
+	dd if=os-image.bin of=disk.img conv=notrunc
