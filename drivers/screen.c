@@ -9,6 +9,7 @@ int print_char(char c, int col, int row, char attr);
 int get_offset(int col, int row);
 int get_offset_row(int offset);
 int get_offset_col(int offset);
+int strlen();
 
 void kprint_at(char *message, int col, int row) {
     int offset;
@@ -32,11 +33,13 @@ void kprint(char *message) {
     kprint_at(message, -1, -1);
 }
 
-void kprint_backspace() {
-    int offset = get_cursor_offset()-2;
-    int row = get_offset_row(offset);
-    int col = get_offset_col(offset);
-    print_char(0x08, col, row, WHITE_ON_BLACK);
+void kprint_backspace(char key_buffer[256]) {
+    if (strlen(key_buffer) != 0) {
+        int offset = get_cursor_offset()-2;
+        int row = get_offset_row(offset);
+        int col = get_offset_col(offset);
+        print_char(0x08, col, row, WHITE_ON_BLACK);
+    }
 }
 
 
@@ -118,4 +121,4 @@ int get_offset(int col, int row) { return 2 * (row * MAX_COLS + col); }
 int get_offset_row(int offset) { return offset / (2 * MAX_COLS); }
 int get_offset_col(int offset) { return (offset - (get_offset_row(offset)*2*MAX_COLS))/2; }
 
-//code from birose
+//code from birose: none
