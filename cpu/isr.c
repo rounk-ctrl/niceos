@@ -143,5 +143,5 @@ void irq_install() {
     asm volatile("sti");
     init_timer(50);
     init_keyboard();
-        kprint("\n");print_char(what[0], -1, -1, WHITE_ON_BLACK);print_char(capsl[14], -1, -1, GREEN_ON_BLACK);print_char(capsl[10], -1, -1, GREEN_ON_BLACK); print_char(what[1], -1, -1, WHITE_ON_BLACK); kprint(" Setting up Keyboard\n");print_char(newl, -1, -1, WHITE_ON_BLACK);
+    kprint("\n");print_char(what[0], -1, -1, WHITE_ON_BLACK);print_char(capsl[14], -1, -1, GREEN_ON_BLACK);print_char(capsl[10], -1, -1, GREEN_ON_BLACK); print_char(what[1], -1, -1, WHITE_ON_BLACK); kprint(" Setting up Keyboard\n");print_char(newl, -1, -1, WHITE_ON_BLACK);
 }
