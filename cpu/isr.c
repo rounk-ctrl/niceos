@@ -98,7 +98,7 @@ char *exception_messages[] = {
     "Coprocessor Fault",
     "Alignment Check",
     "Machine Check",
-    "Reserved",
+    "Successfully loaded kernel!",
     "Reserved",
     "Reserved",
     "Reserved",
@@ -115,11 +115,8 @@ char *exception_messages[] = {
 };
 
 void isr_handler(registers_t *r) {
-    kprint("received interrupt: ");
     char s[3];
     int_to_ascii(r->int_no, s);
-    kprint(s);
-    kprint("\n");
     kprint(exception_messages[r->int_no]);
     kprint("\n");
 }
@@ -137,7 +134,6 @@ void irq_handler(registers_t *r) {
         handler(r);
     }
 }
-
 void irq_install() {
     asm volatile("sti");
     init_timer(50);

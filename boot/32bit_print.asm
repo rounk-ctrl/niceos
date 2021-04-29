@@ -1,8 +1,6 @@
 [bits 32] ; using 32-bit protected mode
-
 VIDEO_MEMORY equ 0xb8000
-WHITE_OB_BLACK equ 0x0f 
-
+WHITE_OB_BLACK equ 0x07 
 print_string_pm:
     pusha
     mov edx, VIDEO_MEMORY
