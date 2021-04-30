@@ -10,10 +10,10 @@ niceos.bin: boot/bootsect.bin kernel.bin
 	cat $^ > niceos.bin
 
 kernel.bin: boot/kernel_entry.o ${OBJ}
-	i686-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	i686-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary --allow-multiple-definition
 
 kernel.elf: boot/kernel_entry.o ${OBJ}
-	i686-elf-ld -o $@ -Ttext 0x1000 $^
+	i686-elf-ld -o $@ -Ttext 0x1000 $^ --allow-multiple-definition
 
 %.o: %.c ${HEADERS}
 	${CC} ${CFLAGS} -c $< -o $@
